@@ -51,6 +51,8 @@ ggplot(steps_per_day[which(steps_per_day$dailysteps != 0)], aes(x=dailysteps)) +
   labs(title = "Histogram of the total number of steps taken per day") + xlab("Total number of steps taken per day")
 ```
 
+![plot of chunk histraw](figure/unnamed-chunk-4-1.png) 
+
 * Calculate and report the mean and median total number of steps taken per day
 
 Mean total number of steps taken per day:
@@ -79,6 +81,8 @@ ggplot(steps_per_interval, aes(x = interval, y = intervalsteps)) +
   science_theme + ylab("Average number of steps across all days") + xlab("5-minute time interval") + 
   labs(title = "Average number of steps across all days\ntaken in the 5-minute interval")
 ```
+
+![plot of chunk tsraw](figure/unnamed-chunk-7-1.png) 
 
 * Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 ```{r}
@@ -132,6 +136,8 @@ steps_per_day_imputed <-  activity_data_imputed[,list(dailysteps = sum(steps)), 
 ggplot(steps_per_day_imputed, aes(x=dailysteps)) + geom_histogram(colour = "dodgerblue", fill = "plum2", binwidth = 1000) + science_theme +
   labs(title = "Histogram of the total number of steps taken per day\nImputed data set") + xlab("Total number of steps taken per day")
 ```
+
+![plot of chunk histimp](figure/unnamed-chunk-12-1.png) 
 
 Mean total number of steps taken per day:
 ```{r}
@@ -191,3 +197,5 @@ ggplot(steps_per_interval_imputed, aes(x = interval, y = intervalsteps)) +
   facet_wrap(~ weekday_factor, ncol=1) + 
   science_theme + ylab("Average number of steps across all days") + xlab("5-minute time interval")
 ```
+
+![plot of chunk tsimp](figure/unnamed-chunk-17-1.png)
